@@ -20,3 +20,7 @@ Route::get('/', function () {
 Route::get('/check', function () {
     return "I love my Pakistan again";
 });
+
+Route::get('/ec2', function () {
+    return "github actions successfully integrated with ec2";
+});
