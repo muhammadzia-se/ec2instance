@@ -14,4 +14,4 @@ jobs:
           aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           aws-region: ${{ secrets.AWS_REGION }}
 
-      - run: ssh ${{ secrets.AWS_INSTANCE_IP }} "cd /var/www/html && git pull && composer install - no-dev && php artisan migrate - force && php artisan optimize"
+      - run: ssh ${{ secrets.AWS_INSTANCE_IP }} "cd /var/www/html && git pull origin main && composer install - no-dev && php artisan migrate - force && php artisan optimize"
