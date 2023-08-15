@@ -28,7 +28,7 @@ jobs:
 
     - name: Deploy to EC2
       run: |
-        rsync -avz --delete --exclude-from=".rsyncignore" -e "ssh -i ~/.ssh/id_rsa" ./ ubuntu@${{ secrets.AWS_INSTANCE_IP }}:/var/www/html
+        "ssh -i ~/.ssh/id_rsa" ./ ubuntu@${{ secrets.AWS_INSTANCE_IP }}:/var/www/html
         ssh -i ~/.ssh/id_rsa ubuntu@${{ secrets.AWS_INSTANCE_IP }} 'cd /var/www/html && composer install --no-interaction --prefer-dist --optimize-autoloader && php artisan config:cache && php artisan route:cache'
 
     - name: Clear SSH key
