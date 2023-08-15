@@ -17,6 +17,6 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/ec2instance', function () {
-    return "i am live over ec2instance";
+Route::get('/check', function () {
+    return "I love my Pakistan";
 });
