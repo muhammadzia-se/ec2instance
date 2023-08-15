@@ -27,7 +27,7 @@ jobs:
       run: composer install --no-interaction --prefer-dist --optimize-autoloader
 
     - name: Deploy to EC2
-      run: "ssh -i ~/.ssh/id_rsa ubuntu@${{ secrets.AWS_INSTANCE_IP }} 'cd /var/www/ec2instance && git reset --hard git pull origin main && composer install --no-interaction --prefer-dist --optimize-autoloader && php artisan config:clear && php artisan route:clear'"
+      run: "ssh -i ~/.ssh/id_rsa ubuntu@${{ secrets.AWS_INSTANCE_IP }} 'cd /var/www/ec2instance && git reset --hard && git pull origin main && composer install --no-interaction --prefer-dist --optimize-autoloader && php artisan config:clear && php artisan route:clear'"
 
     - name: Clear SSH key
       run: rm ~/.ssh/id_rsa
